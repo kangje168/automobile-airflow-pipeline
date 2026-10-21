@@ -19,6 +19,8 @@ Requires Docker Compose.
 
 ```bash
 cd airflow-case-v2
+mkdir -p logs data/output
+echo "AIRFLOW_UID=$(id -u)" > .env
 docker compose up --build airflow-init
 docker compose up airflow-webserver airflow-scheduler
 ```
