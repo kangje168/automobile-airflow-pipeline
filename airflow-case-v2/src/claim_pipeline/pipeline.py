@@ -356,7 +356,7 @@ def score_claims(output_dir: str, run_key: str) -> str:
     scored["high_cost_limit"] = high_cost_limit
 
     scored["unusual_cost"] = scored["total_cost"] > high_cost_limit
-    scored["repeated_repairs"] = scored["prior_repairs_30d"] >= 2
+    scored["repeated_repairs"] = scored["prior_repairs_30d"] >= 3
     scored["sensor_alerts"] = scored["sensor_alert_count"] > 0
 
     scored["review_score"] = (
@@ -404,7 +404,7 @@ def publish_report(output_dir: str, run_key: str) -> str:
             "features": FEATURE_COLUMNS,
             "high_cost_limit": float(scored["high_cost_limit"].iloc[0]),
             "review_rules": {
-                "repeated_repairs_30d": "prior_repairs_30d >= 2",
+                "repeated_repairs_30d": "prior_repairs_30d >= 3",
                 "sensor_threshold_breach": "at least one reading outside configured bounds",
                 "unusual_cost": "historical median + max(4 * MAD, median, 500)",
             },
