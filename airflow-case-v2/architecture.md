@@ -30,7 +30,7 @@ The DAG is manually triggered. Each run receives a stable, sanitized key derived
 
 ## Scoring
 
-An Isolation Forest is fitted with a fixed random seed on the historical sample. Explicit rules independently identify high costs relative to the sample, multiple prior repairs within 30 days and sensor readings outside configured thresholds. The output retains the model flag and individual reasons so an analyst can inspect why a row was surfaced.
+An Isolation Forest is fitted with a fixed random seed on the historical sample. Explicit rules independently identify high costs relative to the sample, at least three prior repairs within 30 days, and sensor readings outside configured thresholds. The output retains the model flag and individual reasons so an analyst can inspect why a row was surfaced.
 
 The sample is too small and synthetic to support accuracy claims. The model is retrained from the bundled historical data on every run only to make this example self-contained. Historical rolling features use historical rows only, avoiding leakage from future incoming repairs. A real service would use a versioned, reviewed model artifact and a representative evaluation set.
 
@@ -50,4 +50,4 @@ Docker Compose runs Airflow 2.10.3 with LocalExecutor and PostgreSQL. It is for 
 
 ## Why the outputs are triage signals
 
-The Isolation Forest is fitted on ten synthetic historical records, and the explicit rules are illustrative. A high score means only that a claim merits human review. The report exposes features and reason codes for inspection; it does not make a fraud determination or claim precision/recall performance.
+The Isolation Forest is fitted on eleven synthetic historical records, and the explicit rules are illustrative. A high score means only that a claim merits human review. The report exposes features and reason codes for inspection; it does not make a fraud determination or claim precision/recall performance.
