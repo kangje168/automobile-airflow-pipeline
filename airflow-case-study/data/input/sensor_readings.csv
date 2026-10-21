@@ -1,0 +1,5 @@
+vehicle_id,sensor_type,value,threshold_min,threshold_max
+V001,tire_pressure,33,30,36
+V002,brake_temperature,85,0,180
+V003,tire_pressure,24,30,36
+V004,oil_pressure,43,25,60
