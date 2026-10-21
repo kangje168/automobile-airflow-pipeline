@@ -3,11 +3,11 @@ name: Airflow case study
 on:
   push:
     paths:
-      - "airflow-case-v2/**"
+      - "airflow-case-study/**"
       - ".github/workflows/airflow-case.yml"
   pull_request:
     paths:
-      - "airflow-case-v2/**"
+      - "airflow-case-study/**"
       - ".github/workflows/airflow-case.yml"
   workflow_dispatch:
 
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: airflow-case-v2
+        working-directory: airflow-case-study
     steps:
       - uses: actions/checkout@v4
       - name: Prepare bind mounts for the runner user

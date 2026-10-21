@@ -1,16 +1,18 @@
-# Automobile Airflow Pipeline
+# Automobile Repair Airflow Case Study
 
-This repository contains a forked Airflow prototype and a cleaner, runnable case study built around the same scenario.
+This repository contains the inherited prototype and a rebuilt, testable Airflow case study.
 
-- `automobile-airflow-pipeline/` contains the inherited prototype.
-- `airflow-case-v2/` is a clean rebuild for demonstrating a complete, testable Airflow workflow.
+| Directory | Purpose |
+|---|---|
+| [`airflow-case-study/`](airflow-case-study/README.md) | Primary runnable case study: an Airflow claim-triage workflow using synthetic data, with tests and a local Docker Compose stack. |
+| [`prototype/`](prototype/README.md) | Original forked prototype, preserved for context and comparison. |
 
-The rebuilt case study processes synthetic vehicle, repair and sensor data. It validates inputs, stages them per DAG run, builds features, scores unusual claims with a reproducible Isolation Forest plus transparent review rules, and writes a report for human review. It is a learning/interview demo, not a production fraud decision system.
+## Run the case study
 
-## Run the rebuilt case
+See [`airflow-case-study/README.md`](airflow-case-study/README.md) for setup, execution, outputs and tests. The local stack uses Airflow 2.10.3, PostgreSQL and LocalExecutor.
 
-See [airflow-case-v2/README.md](airflow-case-v2/README.md). The local stack uses Airflow 2.10.3, PostgreSQL and LocalExecutor.
+## Scope and provenance
 
-## Provenance and scope
+The rebuilt workflow is a learning and interview demo. Its inputs are synthetic, and its scores are triage signals for human review—not validated fraud findings. It does not demonstrate production MWAA operations or large-scale platform tuning.
 
-This repository began as a fork. The inherited code remains available for comparison; the rebuilt case is a separate implementation and does not claim the inherited code as original work. Preserve the upstream attribution and license when redistributing the fork. The demo uses synthetic data and must not be used to make real insurance decisions.
+The repository began as a fork. The original prototype files are preserved under `prototype/`; the earlier repository overview is retained as [`prototype/README.original.md`](prototype/README.original.md). The rebuild is a separate implementation and does not claim the inherited code as original work.

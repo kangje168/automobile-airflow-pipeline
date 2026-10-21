@@ -18,7 +18,7 @@ XCom carries only a run key. Data moves through run-scoped files, so retries are
 Requires Docker Compose.
 
 ```bash
-cd airflow-case-v2
+cd airflow-case-study
 mkdir -p logs data/output
 echo "AIRFLOW_UID=$(id -u)" > .env
 docker compose up --build airflow-init
@@ -51,7 +51,7 @@ The bundled input is synthetic and deterministic. The model is trained on the sm
 
 ## Portfolio and interview framing
 
-This is a fork-based case study with a clean rebuild under `airflow-case-v2/`. Describe it as a workflow you rebuilt and tested, and be precise about which changes are yours. It is useful for discussing Airflow task boundaries, data quality, run isolation, retries, and testability. It does not prove production MWAA operations, large-scale scheduler tuning, or fraud-model performance. See [interview-notes.md](interview-notes.md) for a concise walkthrough and honest scope boundaries.
+This is a fork-based case study with a clean rebuild under `airflow-case-study/`. Describe it as a workflow you rebuilt and tested, and be precise about which changes are yours. It is useful for discussing Airflow task boundaries, data quality, run isolation, retries, and testability. It does not prove production MWAA operations, large-scale scheduler tuning, or fraud-model performance. See [interview-notes.md](interview-notes.md) for a concise walkthrough and honest scope boundaries.
 
 ## Architecture boundary
 

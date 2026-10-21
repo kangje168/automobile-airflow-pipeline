@@ -15,7 +15,7 @@ I rebuilt a small inherited Airflow prototype into a reproducible claim-triage w
 
 ## Scope to state clearly
 
-- The source repository was forked; the `airflow-case-v2/` rebuild is the work to present.
+- The source repository was forked; the `airflow-case-study/` rebuild is the work to present.
 - The example does not demonstrate MWAA in production, AWS IAM/SQS/CloudWatch operations, a 200+ DAG estate, migration leadership, or cost savings.
 - The model has no labeled evaluation set and must not be described as a validated fraud detector.
 - I have Airflow experience from data-engineering projects, including GCP pipelines and Luxembourg's Ministry of the Interior Odoo platform; the AWS/MWAA specifics would need to be validated with the client.
