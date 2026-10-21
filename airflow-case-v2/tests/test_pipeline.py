@@ -36,6 +36,11 @@ def test_end_to_end_creates_reviewable_outputs(tmp_path: Path) -> None:
     assert len(scores) == 5
     assert {"model_anomaly_score", "reason_codes", "review_score"} <= set(scores.columns)
     assert not alerts.empty
+    assert set(alerts["repair_id"]) == {"C102", "C103", "C104"}
+    reasons = alerts.set_index("repair_id")["reason_codes"]
+    assert "repeated_repairs_30d" in reasons["C102"]
+    assert "sensor_threshold_breach" in reasons["C103"]
+    assert "unusual_cost" in reasons["C104"]
     assert summary["incoming_claims"] == 5
     assert summary["claims_recommended_for_review"] == len(alerts)
     assert "human must review" in summary["decision"]
