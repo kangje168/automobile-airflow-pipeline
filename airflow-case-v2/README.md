@@ -38,7 +38,7 @@ Stop the stack with `docker compose down`. Remove the local database with `docke
 ## Run tests
 
 ```bash
-docker compose run --rm airflow-webserver pytest -q
+docker compose run --rm airflow-webserver bash -c "python -m pytest -q"
 ```
 
 The unit tests cover input validation, quarantine behavior, deterministic retries, scoring output and run isolation. The DAG import test uses Airflow's DagBag. A GitHub Actions workflow builds the same container and runs these checks on changes.
