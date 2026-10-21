@@ -24,7 +24,7 @@ jobs:
       - name: Build image and initialize Airflow
         run: docker compose up --build --abort-on-container-exit --exit-code-from airflow-init airflow-init
       - name: Run unit tests and parse the DAG with Airflow
-        run: docker compose run --rm airflow-webserver pytest -q
+        run: docker compose run --rm airflow-webserver bash -c "python -m pytest -q"
       - name: Stop services
         if: always()
         run: docker compose down -v
